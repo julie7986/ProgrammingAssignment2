@@ -4,8 +4,12 @@
 ## Write a short comment describing this function
 ## creates a special "matrix" object that can cache its inverse.
 makeCacheMatrix <- function(x = matrix()) {
- xval<<-x
- print(xval)
+        if(is.null(x)) {
+                x<-matrix(rnorm(4), 2) 
+        }
+        xval<<-solve(x)
+        print(xval)
+        
 }
 
 
@@ -20,6 +24,6 @@ cacheSolve <- function(x, ...) {
                 message("getting cached data")
                 return(m)
         }
-        inva<<-solve(m)
+        inva<<-solve(x)
         print(inva)
 }
